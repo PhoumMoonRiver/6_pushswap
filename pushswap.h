@@ -27,10 +27,12 @@ typedef struct t_count
     int  j;
     int num1;
     int num2;
+    int size_a;
+    int size_b;
 } s_count;
 
-char    error_check(int ac, char **av);
-char    check_dup(int *res_num);
+void    error_check(int ac, char **av);
+void    check_dup(int *res_num);
 void	ft_putstr_fd(char *s, int fd);
 size_t  ft_strlen(char *s);
 int	ft_atoi(const char *str);
@@ -38,15 +40,15 @@ char	**ft_split(char const *s, char c);
 int     ft_ma_count(char **av);
 int     *ft_pushint(char **av, int len);
 void ft_free2d(char **free2);
-void    ft_sa(int *stack_a, int len);
-void    ft_sb(int *stack_a, int len);
+void    ft_sa(int *stack_a, int len, int sec);
+void    ft_sb(int *stack_a, int len, int sec);
 void    ft_ss(int *stack_a, int *stack_b, int len);
-void    ft_ra(int *stack_a, int len);
-void    ft_rb(int *stack_b, int len);
+void    ft_ra(int *stack_a, int len, int sec);
+void    ft_rb(int *stack_b, int len, int sec);
 void    ft_rr(int *stack_a, int *stack_b, int len);
-void    ft_rra(int *stack_a, int len);
-void    ft_rrb(int *stack_b, int len);
+void    ft_rra(int *stack_a, int len, int sec);
+void    ft_rrb(int *stack_b, int len, int sec);
 void    ft_rrr(int *stack_a, int *stack_b, int len);
-void    ft_pa(int *stack_a, int *stack_b, int len);
-void    ft_pb(int *stack_a, int *stack_b, int len);
+void    ft_pa(int *stack_a, int *stack_b);
+void    ft_pb(int *stack_a, int *stack_b);
 #endif

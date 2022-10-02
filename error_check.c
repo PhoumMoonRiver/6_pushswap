@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-char    check_dup(int *res_num)
+void    check_dup(int *res_num)
 {
     s_count c;
     
@@ -31,11 +31,9 @@ char    check_dup(int *res_num)
         }
         c.i++;
     }
-    free(res_num);
-    return (0);
 }
 
-char    check_num(char **av)
+void    check_num(char **av)
 {
     size_t  fd;
     size_t  sd;
@@ -46,9 +44,9 @@ char    check_num(char **av)
         sd = 0;
         while (av[fd][sd])
         {
-            if (av[fd][sd] == '-')
+            if (av[fd][0] == '-')
                 sd++;
-            if (av[fd][sd] >= '0' && av[fd][sd] <= '9')
+            if ((av[fd][sd] >= '0' && av[fd][sd] <= '9') || av[fd][sd] == 32)
                 sd++;
             else
             {
@@ -58,17 +56,18 @@ char    check_num(char **av)
         }
         fd++;
     }
-    return (0);
 }
 
-char    error_check(int ac, char **av)
+void    error_check(int ac, char **av)
 {
-    if (ac == 1)
-    {
-        ft_putstr_fd("Error\n", 2);
+    if (ac <= 2)
         exit(1);
-    }
     check_num(av);
-//    check_dup(av);
-    return (0);  
 }
+
+/*
+ 1. ตรวจสอบข้อมูลที่ส่งเข้ามาหากมีเพียงจำนวนเดียว โปรแกรมต้องแสดงผลเป็น "error" ออกมาเพราะ ไม่สามารถจัดเรียงได้
+ 2. ตรวจสอบการส่งข้อมูล int ที่ถูกต้องคือ {1, -1} เท่านั้น ไม่สามารถรับค่า ตัวอักษร หรือ --1 , 1-- , +1
+ 3. ตรวจสอบว่าข้อมูลที่ส่งเข้ามานั้น ซ้ำ กันหรือไม่ หากซ้ำกันให้แสดงผล "error"
+ 4. ตรวจสอบว่าค่าข้อมูลเกิน int หรือไม่ หากเกินให้แสดงผล "error"
+*/

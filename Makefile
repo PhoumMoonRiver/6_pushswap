@@ -14,14 +14,14 @@ NAME = push_swap
 
 SRCS = pushswap.c \
 		error_check.c \
-		1_libft_util.c \
-		ft_split.c \
+		libft_and_util/1_libft_util.c \
+		libft_and_util/ft_split.c \
 		pushint.c \
-		ft_util.c \
-		ft_swap.c \
-		ft_rotate.c \
-		rev_rotate.c \
-		ft_push.c 
+		libft_and_util/ft_util.c \
+		action/ft_swap.c \
+		action/ft_rotate.c \
+		action/rev_rotate.c \
+		action/ft_push.c 
 
 CC = gcc -Wall -Wextra -Werror -std=c99 -g
 
