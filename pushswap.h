@@ -51,4 +51,9 @@ void    ft_rrb(int *stack_b, int len, int sec);
 void    ft_rrr(int *stack_a, int *stack_b, int len);
 void    ft_pa(int *stack_a, int *stack_b);
 void    ft_pb(int *stack_a, int *stack_b);
+void    ft_sort(int *res_num, int len);
+void     ft_3_sort(int *res_num, int len);
+int     check_sort(int  *res_num, int len);
+
+
 #endif

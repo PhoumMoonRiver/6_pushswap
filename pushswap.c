@@ -23,6 +23,13 @@ int     main(int ac, char **av)
     c.size_a = len;
     res_num = ft_pushint(av, len);
     check_dup(res_num);
+    ft_sort(res_num, len);
 
+    int i = 0;
+    while (i < len)
+    {
+        printf("res_num[%d] ===> [%d]\n", i, res_num[i]);
+        i++;
+    }
     return (0);
 }

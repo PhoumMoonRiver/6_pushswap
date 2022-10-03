@@ -16,14 +16,16 @@ SRCS = pushswap.c \
 		error_check.c \
 		libft_and_util/1_libft_util.c \
 		libft_and_util/ft_split.c \
-		pushint.c \
+		sort/pushint.c \
 		libft_and_util/ft_util.c \
 		action/ft_swap.c \
 		action/ft_rotate.c \
 		action/rev_rotate.c \
-		action/ft_push.c 
+		action/ft_push.c \
+		sort/sort.c \
+		sort/3_sort.c
 
-CC = gcc -Wall -Wextra -Werror -std=c99 -g
+CC = gcc -Wall -Wextra -Werror -std=c99
 
 RM = rm -rf
 
