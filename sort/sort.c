@@ -40,5 +40,7 @@ void    ft_sort(int *res_num, int len)
             ft_sa(res_num, len, 0);
     }
     if (len == 3)
-       ft_3_sort(res_num, len);     
+       ft_3_sort(res_num, len);
+    if (len > 3)
+       ft_bigsort(res_num, len);    
 }

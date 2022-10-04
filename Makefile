@@ -23,7 +23,8 @@ SRCS = pushswap.c \
 		action/rev_rotate.c \
 		action/ft_push.c \
 		sort/sort.c \
-		sort/3_sort.c
+		sort/3_sort.c \
+		sort/bigsort.c 
 
 CC = gcc -Wall -Wextra -Werror -std=c99
 
