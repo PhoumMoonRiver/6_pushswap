@@ -31,14 +31,8 @@ typedef struct t_count
     int size_b;
 } s_count;
 
-typedef struct information
-{
-    int content;
-    int index;
-} data;
-
 void    error_check(int ac, char **av);
-void    check_dup(int *res_num);
+void    check_dup(int *res_num, int len);
 void	ft_putstr_fd(char *s, int fd);
 size_t  ft_strlen(char *s);
 int	ft_atoi(const char *str);
@@ -55,12 +49,12 @@ void    ft_rr(int *stack_a, int *stack_b, int len);
 void    ft_rra(int *stack_a, int len, int sec);
 void    ft_rrb(int *stack_b, int len, int sec);
 void    ft_rrr(int *stack_a, int *stack_b, int len);
-void    ft_pa(int *stack_a, int *stack_b);
-void    ft_pb(int *stack_a, int *stack_b);
+void    ft_pa(int *stack_a, int *stack_b, s_count *c);
+void    ft_pb(int *stack_a, int *stack_b, s_count *c);
 void    ft_sort(int *res_num, int len);
 void     ft_3_sort(int *res_num, int len);
 int     check_sort(int  *res_num, int len);
-int     ft_bigsort(int *res_num, int len);
-void ft_setindex_minmax(data *a, int *res_num, int len);
+int     *ft_setindex_minmax(int *res_num, int len);
+int     ft_5_sort(int *res_num, int len);
 
 #endif

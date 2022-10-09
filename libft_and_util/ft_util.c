@@ -24,15 +24,36 @@ void ft_free2d(char **free2)
 	free(free2);
 }
 
-void ft_setindex_minmax(data *a, int *res_num, int len)
+int     *ft_setindex_minmax(int *res_num, int len)
 {
-	s_count c;
+    int *a;
+    s_count c;
 
-	c.i = 0;
-	while (c.i < len)
-	{
-		a[c.i].content = res_num[c.i];
-printf("a.content ==> [%d]", a[c.i].content);
-		c.i++;
+    c.j = 0;
+    c.num1 = 0;
+    c.num2 = 0;
+    a = (int *)malloc(sizeof(int) * len);
+    while (c.j < len)
+    {
+        c.i = 0;
+        c.fd = len;
+        while (a[c.i] < res_num[c.j] && c.fd--)
+        {
+            if (c.i == c.j)
+                a[c.i] = res_num[c.j];
+            c.i++;
+        }
+        if (a[c.i] > res_num[c.j])
+        {
+            c.num2 = c.j;
+            while (c.num2 - c.i > 0)
+            {
+                a[c.num2] = a[c.num2 - 1];
+                c.num2--;
+            }
+            a[c.i] = res_num[c.j];
+        }
+        c.j++;   
 	}
+	return(a);
 }

@@ -14,22 +14,20 @@
 
 int     main(int ac, char **av)
 {
-    s_count c;
     int *res_num;
     int len;
-    
+
     error_check(ac, av);
     len = ft_ma_count(av);
-    c.size_a = len;
     res_num = ft_pushint(av, len);
-    check_dup(res_num);
+    check_dup(res_num, len);
     ft_sort(res_num, len);
-
-    int i = 0;
+    free(res_num);
+/*    int i = 0;
     while (i < len)
     {
         printf("res_num[%d] ===> [%d]\n", i, res_num[i]);
         i++;
     }
-    return (0);
+*/    return (0);
 }

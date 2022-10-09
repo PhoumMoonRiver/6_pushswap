@@ -19,7 +19,7 @@ int     check_sort(int  *res_num, int len)
 
     i = 0;
     check = 1;
-    while (i < len)
+    while (i < len - 1)
     {
         if (res_num[i] < res_num[i + 1])
             check++;
@@ -41,6 +41,6 @@ void    ft_sort(int *res_num, int len)
     }
     if (len == 3)
        ft_3_sort(res_num, len);
-    if (len > 3)
-       ft_bigsort(res_num, len);    
+    if (len >= 4 && len <= 5)
+       ft_5_sort(res_num, len);    
 }

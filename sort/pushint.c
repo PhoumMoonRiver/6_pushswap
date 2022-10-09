@@ -20,7 +20,7 @@ int     *ft_pushint(char **av, int len)
 
     c.fd = 1;
     c.j = 0;
-    tem = malloc(sizeof(int) * (len));
+    tem = malloc(sizeof(int) * (len + 1));
     if (!tem)
         return (0);
     while (av[c.fd])
@@ -32,6 +32,8 @@ int     *ft_pushint(char **av, int len)
         c.fd++;
         ft_free2d(res_split);
     }
+    if (len <= 1)
+        exit(0);
     return (tem);
 }
 
@@ -48,10 +50,10 @@ int     ft_ma_count(char **av)
         c.i = 0;
         while (res_split[c.i])
             c.i++;
+        ft_free2d(res_split);
         c.num2 += c.i;
         c.fd++;
     }
-    ft_free2d(res_split);
     return (c.num2);
 }
 

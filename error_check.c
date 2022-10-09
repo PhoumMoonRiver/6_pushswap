@@ -12,20 +12,21 @@
 
 #include "pushswap.h"
 
-void    check_dup(int *res_num)
+void    check_dup(int *res_num, int len)
 {
     s_count c;
     
     c.i = 0;
-    while (res_num[c.i])
+    c.j = 0;
+    while (c.i < len)
     {
         c.j = 1 + c.i;
-        while (res_num[c.j])
+        while (c.j < len)
         {
             if(res_num[c.i] == res_num[c.j])
             {
                 ft_putstr_fd("Error\n", 2);
-                exit(1);
+                exit(0);
             }
             c.j++; 
         }
@@ -44,14 +45,14 @@ void    check_num(char **av)
         sd = 0;
         while (av[fd][sd])
         {
-            if (av[fd][0] == '-')
-                sd++;
-            if ((av[fd][sd] >= '0' && av[fd][sd] <= '9') || av[fd][sd] == 32)
+            if ((av[fd][sd] == '-' && sd == 0 && (av[fd][sd + 1] >= '0' && av[fd][sd + 1] <= '9')) || 
+                (av[fd][sd] == '-' && av[fd][sd - 1] == 32)||
+                ((av[fd][sd] >= '0' && av[fd][sd] <= '9') || av[fd][sd] == 32))
                 sd++;
             else
             {
                 ft_putstr_fd("Error\n", 2);
-                exit(1);
+                exit(0);
             }
         }
         fd++;
@@ -60,8 +61,10 @@ void    check_num(char **av)
 
 void    error_check(int ac, char **av)
 {
-    if (ac <= 2)
-        exit(1);
+    if (ac == 1)
+        exit(0);
+    if (av[1][0] == '\0')
+        exit(0); 
     check_num(av);
 }
 
