@@ -32,8 +32,19 @@ int     check_sort(int  *res_num, int len)
 
 void    ft_sort(int *res_num, int len)
 {
+/*
+    printf("=====> hi <===== \n");
+
+int a1 = 0;
+while (a1 < len)
+{
+    printf(" in sort stack_a[%d] ===> [%d]\n", a1, res_num[a1]);
+    a1++;
+}
+printf("\n");
+*/
     if (check_sort(res_num, len) == 0)
-        exit(0);
+        return ;
     if (len == 2)
     {
         if (res_num[0] > res_num[1])

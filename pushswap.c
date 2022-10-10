@@ -22,12 +22,14 @@ int     main(int ac, char **av)
     res_num = ft_pushint(av, len);
     check_dup(res_num, len);
     ft_sort(res_num, len);
-    free(res_num);
-/*    int i = 0;
+/*
+    int i = 0;
     while (i < len)
     {
         printf("res_num[%d] ===> [%d]\n", i, res_num[i]);
         i++;
     }
-*/    return (0);
+*/
+    free(res_num);
+    return (0);
 }

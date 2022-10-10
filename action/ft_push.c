@@ -44,10 +44,7 @@ void    ft_pb(int *stack_a, int *stack_b, s_count *c)
         stack_b[this.j + 1] = stack_b[this.j];
         this.j--;
     }
-//printf("stack_a[0] ==> [%d]\n", stack_a[0]);
     stack_b[0] = stack_a[0];
-//printf("stack_b[0] ==> [%d]\n", stack_b[0]);
-//printf("\n");
     c->size_a--;
     c->size_b++;
     this.i = 1;
@@ -57,4 +54,13 @@ void    ft_pb(int *stack_a, int *stack_b, s_count *c)
         this.i++;
     }
     ft_putstr_fd("pb\n", 1);
+/*
+int a = 0;
+while (a < 2)
+{
+    printf("stack_b have [%d] ===> [%d]\n", a, stack_b[a]);
+    a++;
+}
+printf("\n");
+*/
 }
