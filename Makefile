@@ -24,7 +24,7 @@ SRCS = pushswap.c \
 		sort/pushint.c \
 		sort/sort.c \
 		sort/3_sort.c \
-		sort/5_sort.c 
+		sort/5_sort_copy.c 
 
 CC = gcc -Wall -Wextra -Werror -std=c99
 
