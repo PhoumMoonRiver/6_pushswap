@@ -54,13 +54,13 @@ void    ft_pb(int *stack_a, int *stack_b, s_count *c)
         this.i++;
     }
     ft_putstr_fd("pb\n", 1);
-/*
+
 int a = 0;
-while (a < 2)
+while (a < 21)
 {
-    printf("stack_b have [%d] ===> [%d]\n", a, stack_b[a]);
+    printf("----- B ----- stack_b[%d] ===> [%d]\n", a, stack_b[a]);
     a++;
 }
 printf("\n");
-*/
+
 }

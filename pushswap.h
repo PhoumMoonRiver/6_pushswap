@@ -25,6 +25,7 @@ typedef struct t_count
     int  sd;
     int  i;
     int  j;
+    int  k;
     int num1;
     int num2;
     int size_a;
@@ -56,5 +57,6 @@ void     ft_3_sort(int *res_num, int len);
 int     check_sort(int  *res_num, int len);
 int     *ft_setindex_minmax(int *res_num, int len);
 int     ft_5_sort(int *res_num, int len);
+int     ft_100_sort(int *res_num, int len);
 
 #endif
