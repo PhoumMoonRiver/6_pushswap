@@ -26,10 +26,12 @@ typedef struct t_count
     int  i;
     int  j;
     int  k;
+    int  *tmp;
     int num1;
     int num2;
     int size_a;
     int size_b;
+    int mid_chunk;
 } s_count;
 
 void    error_check(int ac, char **av);

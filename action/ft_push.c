@@ -54,7 +54,7 @@ void    ft_pb(int *stack_a, int *stack_b, s_count *c)
         this.i++;
     }
     ft_putstr_fd("pb\n", 1);
-
+/*
 int a = 0;
 while (a < 21)
 {
@@ -62,5 +62,5 @@ while (a < 21)
     a++;
 }
 printf("\n");
-
+*/
 }
