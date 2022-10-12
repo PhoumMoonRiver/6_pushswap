@@ -48,7 +48,7 @@ void    ft_sb(int *stack_a, int len, int sec);
 void    ft_ss(int *stack_a, int *stack_b, int len);
 void    ft_ra(int *stack_a, int len, int sec);
 void    ft_rb(int *stack_b, int len, int sec);
-void    ft_rr(int *stack_a, int *stack_b, int len);
+void    ft_rr(int *stack_a, int *stack_b, int len_a, int len_b);
 void    ft_rra(int *stack_a, int len, int sec);
 void    ft_rrb(int *stack_b, int len, int sec);
 void    ft_rrr(int *stack_a, int *stack_b, int len);

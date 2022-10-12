@@ -52,9 +52,9 @@ void    ft_rb(int *stack_b, int len, int sec)
         ft_putstr_fd("rb\n", 1);
 }
 
-void    ft_rr(int *stack_a, int *stack_b, int len)
+void    ft_rr(int *stack_a, int *stack_b, int len_a , int len_b)
 {
-    ft_ra(stack_a, len, 1);
-    ft_rb(stack_b, len, 1);
+    ft_ra(stack_a, len_a, 1);
+    ft_rb(stack_b, len_b, 1);
     ft_putstr_fd("rr\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: njerasea <njerasea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:14:23 by njerasea          #+#    #+#             */
-/*   Updated: 2022/10/12 21:39:43 by njerasea         ###   ########.fr       */
+/*   Updated: 2022/10/12 22:48:08 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,11 @@ void    ft_backtoa(int *stack_a, int *stack_b, s_count *c)
         this.i = 0;
         while (this.i < c->size_b && this.j >= 0)
         {
-////printf("tmp ===> [%d]\n",c->tmp[this.j]);
-////printf("stack_b[%d] ===> [%d]\n", this.i ,stack_b[this.i]);
             if (stack_b[this.i] == c->tmp[this.j])
             {
-////printf("+++++ HI +++++");
                 if (this.i == 0)
                 {
                     ft_pa(stack_a, stack_b, c);
-//printf("stacK_a ===> [%d]\n", stack_a[0]);
-//printf("stacK_b ===> [%d]\n", stack_b[0]);
-//exit(0);
                     this.j--;
                 }
                 else if (this.i >= (c->size_b / 2) - 1 && this.i != 0)
@@ -68,9 +62,6 @@ void    ft_backtoa(int *stack_a, int *stack_b, s_count *c)
                         this.num2--;
                     }
                     ft_pa(stack_a, stack_b, c);
-//printf("stacK_a ===> [%d]\n", stack_a[0]);
-//printf("stacK_b ===> [%d]\n", stack_b[0]);
-//exit(0);
                     this.j--;
                 }
                 else
@@ -82,9 +73,6 @@ void    ft_backtoa(int *stack_a, int *stack_b, s_count *c)
                         this.num2--;
                     }
                     ft_pa(stack_a, stack_b, c);
-//printf("stacK_a ===> [%d]\n", stack_a[0]);
-//printf("stacK_b ===> [%d]\n", stack_b[0]);
-//exit(0);
                     this.j--;
                 }
             }
@@ -94,9 +82,12 @@ void    ft_backtoa(int *stack_a, int *stack_b, s_count *c)
     } 
 }
 
-void    ft_set_chunk_stack_b(int *stack_b, s_count *c)
+void    ft_set_chunk_stack_b(int *stack_a, int *stack_b, s_count *c, int len)
 {
-    if (stack_b[0] <= c->tmp[c->mid_chunk - 1] && c->size_b > 1)
+    if (stack_a[0] > c->tmp[(len - c->num1) - 1] && stack_b[0] <= c->tmp[c->mid_chunk - 1] 
+        && c->size_b > 1)
+        ft_rr(stack_a, stack_b, c->size_a, c->size_b);
+    else if (stack_b[0] <= c->tmp[c->mid_chunk - 1] && c->size_b > 1)
         ft_rb(stack_b, c->size_b, 0);
 }
 
@@ -110,44 +101,15 @@ void    ft_set_chunk(int *stack_a, int len, int *stack_b, s_count *c)
     this.num2 = 0;
     while (this.k < (len / 5))
     {
-        this.j = 0;
-        while (this.j <= c->size_a && this.k < (len / 5))
-        {
-            if (c->size_a == 5)
+        if (c->size_a == 5)
                 return ;
-            if (stack_a[this.j] <= c->tmp[(len - c->num1) - 1])
-            {
-                if (this.j == 0)
-                {
-                    ft_pb(stack_a, stack_b, c);
-                    this.k++;
-                }
-                else if (this.j >= (c->size_a / 2) - 1 && this.j != 0)
-                {  
-
-                    int  tmp = stack_a[this.j];
-                    while (stack_a[0] != tmp)
-                    {
-                        ft_rra(stack_a, c->size_a, 0);
-                    }
-                    ft_pb(stack_a, stack_b, c);
-                    this.k++;
-                }
-                else
-                {
-                    this.num2 = this.j;
-                    while (this.num2 > 0)
-                    {
-                        ft_ra(stack_a, c->size_a, 0);
-                        this.num2--;
-                    }
-                    ft_pb(stack_a, stack_b, c);
-                    this.k++;
-                }
-                ft_set_chunk_stack_b(stack_b, c);
-            }
-            this.j++;
+        if (stack_a[0] <= c->tmp[(len - c->num1) - 1])
+        {
+            ft_pb(stack_a, stack_b, c);
+            ft_set_chunk_stack_b(stack_a, stack_b, c, len);
+            this.k++;
         }
+        ft_ra(stack_a, c->size_a, 0);
     }
 }
 
@@ -167,8 +129,6 @@ int     ft_100_sort(int *res_num, int len)
     while (c.fd - c.i >= 0)
     {
         ft_set_chunk(res_num, len, stack_b, &c);
-        if (c.fd == 100)
-            exit(0);
         if (c.fd == 40)
         {
             c.num1 -= 15;
@@ -180,17 +140,14 @@ int     ft_100_sort(int *res_num, int len)
             c.mid_chunk += 20;
         }
         c.fd -= c.i;
-        //printf(" หลัง num1 => [[%d]\n", c.num1);
     }
-//ft_print(res_num, stack_b, &c);
-//exit (0);
-
     ft_sort(res_num, c.size_a);
     ft_backtoa(res_num, stack_b, &c);
 /*
 printf("sizeof ++ c.size_a ++ [%d]\n", c.size_a);
 printf("sizeof ++ c.size_b ++ [%d]\n", c.size_b);
 */
+//ft_print(res_num, stack_b, &c);
     free(c.tmp);
     free(stack_b);
     return (0);
