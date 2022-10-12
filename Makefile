@@ -44,4 +44,7 @@ fclean: clean
 
 re: fclean all
 
+test: checker_OS
+	ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_OS $ARG
+
 .PHONY: all clean fclean re
