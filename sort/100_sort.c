@@ -6,7 +6,7 @@
 /*   By: njerasea <njerasea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:14:23 by njerasea          #+#    #+#             */
-/*   Updated: 2022/10/12 22:48:08 by njerasea         ###   ########.fr       */
+/*   Updated: 2022/10/13 07:25:21 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void    ft_print(int *stack_a, int *stack_b, s_count *c)
         printf(" ====== B[%d] ===> [%d]\n", h, stack_b[h]);
         h++;
     }
-    int k = 0;
+ /*   int k = 0;
     while (k < 100)
     {
         printf("++++++ tmp ++++++ tmp[%d] ====> [%d]\n", k, c->tmp[k]);
         k++;
-    }
+    } */
     printf("\n");
 }
 
@@ -97,19 +97,41 @@ void    ft_set_chunk(int *stack_a, int len, int *stack_b, s_count *c)
 
     this.i = 0;
     this.k = 0;
-    this.num1 = len - (len / 5);
-    this.num2 = 0;
     while (this.k < (len / 5))
     {
         if (c->size_a == 5)
-                return ;
-        if (stack_a[0] <= c->tmp[(len - c->num1) - 1])
+            return ;
+        this.j = 0;
+        this.size_a = c->size_a - 1;
+        while (this.j < c->size_a)
         {
+            if (stack_a[this.j] <= c->tmp[(len - c->num1) - 1])
+                break ;
+            this.j++;
+        }
+        while (this.size_a > 0)
+        {
+            if (stack_a[this.size_a] <= c->tmp[(len - c->num1) - 1])
+                break ;
+            this.size_a--;
+        }
+        if (this.j > (c->size_a - this.size_a))
+        {
+            this.keep = stack_a[this.size_a];
+            while (stack_a[0] != this.keep)
+                ft_rra(stack_a, c->size_a, 0);
             ft_pb(stack_a, stack_b, c);
-            ft_set_chunk_stack_b(stack_a, stack_b, c, len);
             this.k++;
         }
-        ft_ra(stack_a, c->size_a, 0);
+        else
+        {
+            this.keep = stack_a[this.j];
+            while (stack_a[0] != this.keep)
+                ft_ra(stack_a, c->size_a, 0);
+            ft_pb(stack_a, stack_b, c);
+            this.k++;
+        }
+        ft_set_chunk_stack_b(stack_a, stack_b, c, len);
     }
 }
 
@@ -143,11 +165,6 @@ int     ft_100_sort(int *res_num, int len)
     }
     ft_sort(res_num, c.size_a);
     ft_backtoa(res_num, stack_b, &c);
-/*
-printf("sizeof ++ c.size_a ++ [%d]\n", c.size_a);
-printf("sizeof ++ c.size_b ++ [%d]\n", c.size_b);
-*/
-//ft_print(res_num, stack_b, &c);
     free(c.tmp);
     free(stack_b);
     return (0);
