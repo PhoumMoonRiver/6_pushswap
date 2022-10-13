@@ -6,7 +6,7 @@
 /*   By: njerasea <njerasea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:14:23 by njerasea          #+#    #+#             */
-/*   Updated: 2022/10/13 07:25:21 by njerasea         ###   ########.fr       */
+/*   Updated: 2022/10/13 12:13:11 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,44 +39,29 @@ void    ft_backtoa(int *stack_a, int *stack_b, s_count *c)
 {
     s_count this;
 
-    this.j = c->size_b - 1;
     this.num2 = 0;
-    while (this.j >= 0)
+    while (c->size_b > 0)
     {
         this.i = 0;
-        while (this.i < c->size_b && this.j >= 0)
+        while (this.i < c->size_b && c->size_b > 0)
         {
-            if (stack_b[this.i] == c->tmp[this.j])
+            if (stack_b[this.i] == c->tmp[c->size_b - 1])
             {
-                if (this.i == 0)
+                if (this.i >= (c->size_b / 2) - 1)
                 {
-                    ft_pa(stack_a, stack_b, c);
-                    this.j--;
-                }
-                else if (this.i >= (c->size_b / 2) - 1 && this.i != 0)
-                {
-                    this.num2 = c->size_b - this.i;
-                    while (this.num2 > 0 )
-                    {
+                    this.keep = stack_b[this.i];
+                    while (stack_b[0] != this.keep)
                         ft_rrb(stack_b, c->size_b, 0);
-                        this.num2--;
-                    }
                     ft_pa(stack_a, stack_b, c);
-                    this.j--;
                 }
                 else
                 {
-                    this.num2 = this.i;
-                    while (this.num2 > 0)
-                    {
+                    this.keep = stack_b[this.i];
+                    while (stack_b[0] != this.keep)
                         ft_rb(stack_b, c->size_b, 0);
-                        this.num2--;
-                    }
                     ft_pa(stack_a, stack_b, c);
-                    this.j--;
                 }
             }
-
             this.i++;
         }
     } 

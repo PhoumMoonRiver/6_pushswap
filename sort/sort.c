@@ -55,5 +55,5 @@ printf("\n");
     if (len >= 4 && len <= 5)
        ft_5_sort(res_num, len);
     if (len >= 6 && len <= 100)
-        ft_100_sort(res_num, len);   
+        ft_100_sort(res_num, len);
 }
