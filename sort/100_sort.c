@@ -82,7 +82,7 @@ void    ft_set_chunk(int *stack_a, int len, int *stack_b, s_count *c)
 
     this.i = 0;
     this.k = 0;
-    while (this.k < (len / 5))
+    while (this.k < c->i)
     {
         if (c->size_a == 5)
             return ;
