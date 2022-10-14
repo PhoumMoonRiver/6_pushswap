@@ -61,10 +61,20 @@ void    check_num(char **av)
 
 void    error_check(int ac, char **av)
 {
+    s_count this;
+
+    this.fd = 1;
     if (ac == 1)
         exit(0);
-    if (av[1][0] == '\0')
-        exit(0); 
+    while (av[this.fd])
+    {
+        if (av[this.fd][0] == '\0')
+        {
+            ft_putstr_fd("Error\n", 2);
+            exit(0);
+        }
+        this.fd++;
+    }
     check_num(av);
 }
 

@@ -66,4 +66,6 @@ void    ft_set_chunk(int *stack_a, int len, int *stack_b, s_count *c);
 void    ft_set_chunk_stack_b(int *stack_a, int *stack_b, s_count *c, int len);
 void    ft_backtoa(int *stack_a, int *stack_b, s_count *c);
 int     ft_500_sort(int *res_num, int len);
+int     ft_universe(int *res_num, int len);
+
 #endif

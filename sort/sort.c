@@ -32,17 +32,6 @@ int     check_sort(int  *res_num, int len)
 
 void    ft_sort(int *res_num, int len)
 {
-/*
-    printf("=====> hi <===== \n");
-
-int a1 = 0;
-while (a1 < len)
-{
-    printf(" in sort stack_a[%d] ===> [%d]\n", a1, res_num[a1]);
-    a1++;
-}
-printf("\n");
-*/
     if (check_sort(res_num, len) == 0)
         return ;
     if (len == 2)
@@ -50,12 +39,14 @@ printf("\n");
         if (res_num[0] > res_num[1])
             ft_sa(res_num, len, 0);
     }
-    if (len == 3)
+    else if (len == 3)
        ft_3_sort(res_num, len);
-    if (len >= 4 && len <= 5)
+    else if (len >= 4 && len <= 5)
        ft_5_sort(res_num, len);
-    if (len >= 6 && len <= 100)
+    else if (len == 100)
         ft_100_sort(res_num, len);
-    if (len >= 101)
+    else if (len == 500)
         ft_500_sort(res_num, len);
+    else
+        ft_universe(res_num, len);
 }

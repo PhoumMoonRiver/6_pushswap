@@ -6,34 +6,11 @@
 /*   By: njerasea <njerasea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:14:23 by njerasea          #+#    #+#             */
-/*   Updated: 2022/10/13 12:13:11 by njerasea         ###   ########.fr       */
+/*   Updated: 2022/10/14 13:28:42 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
-
-void    ft_print(int *stack_a, int *stack_b, s_count *c)
-{
-    int h = 0;
-    while (h < c->size_a)
-    {
-        printf(" ======== A[%d] ===> [%d]\n", h, stack_a[h]);
-        h++;
-    }
-    h = 0;
-    while (h < c->size_b)
-    {
-        printf(" ====== B[%d] ===> [%d]\n", h, stack_b[h]);
-        h++;
-    }
- /*   int k = 0;
-    while (k < 100)
-    {
-        printf("++++++ tmp ++++++ tmp[%d] ====> [%d]\n", k, c->tmp[k]);
-        k++;
-    } */
-    printf("\n");
-}
 
 void    ft_backtoa(int *stack_a, int *stack_b, s_count *c)
 {
