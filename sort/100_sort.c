@@ -47,20 +47,32 @@ void    ft_backtoa(int *stack_a, int *stack_b, s_count *c)
         {
             if (stack_b[this.i] == c->tmp[c->size_b - 1])
             {
+                this.keep = stack_b[this.i];
+                this.keep2 = c->tmp[c->size_b - 2];
                 if (this.i >= (c->size_b / 2) - 1)
                 {
-                    this.keep = stack_b[this.i];
                     while (stack_b[0] != this.keep)
-                        ft_rrb(stack_b, c->size_b, 0);
+                    {
+                        if (stack_b[0] == this.keep2)
+                            ft_pa(stack_a, stack_b, c);
+                        else
+                            ft_rrb(stack_b, c->size_b, 0);
+                    }
                     ft_pa(stack_a, stack_b, c);
                 }
                 else
                 {
-                    this.keep = stack_b[this.i];
                     while (stack_b[0] != this.keep)
-                        ft_rb(stack_b, c->size_b, 0);
+                    {
+                        if (stack_b[0] == this.keep2)
+                            ft_pa(stack_a, stack_b, c);
+                        else
+                            ft_rb(stack_b, c->size_b, 0);
+                    }
                     ft_pa(stack_a, stack_b, c);
                 }
+                if (stack_a[0] > stack_a[1])
+                    ft_sa(stack_a, c->size_a, 0);
             }
             this.i++;
         }
@@ -150,6 +162,7 @@ int     ft_100_sort(int *res_num, int len)
     }
     ft_sort(res_num, c.size_a);
     ft_backtoa(res_num, stack_b, &c);
+//ft_print(res_num, stack_b, &c);
     free(c.tmp);
     free(stack_b);
     return (0);

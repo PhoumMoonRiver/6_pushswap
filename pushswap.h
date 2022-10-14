@@ -27,6 +27,7 @@ typedef struct t_count
     int  j;
     int  k;
     int  keep;
+    int  keep2;
     int  *tmp;
     int num1;
     int num2;
