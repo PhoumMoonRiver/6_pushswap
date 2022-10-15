@@ -6,7 +6,7 @@
 /*   By: njerasea <njerasea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:14:23 by njerasea          #+#    #+#             */
-/*   Updated: 2022/10/15 12:33:31 by njerasea         ###   ########.fr       */
+/*   Updated: 2022/10/15 19:18:26 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_set_chunk_stack_b(int *stack_a, int *stack_b, t_c *c, int len)
 {
 	if (stack_a[0] > c->tmp[(len - c->num1) - 1] && stack_b[0]
 		<= c->tmp[c->mid_chunk - 1] && c->size_b > 1)
-		ft_rr(stack_a, stack_b, c->size_a, c->size_b);
+		ft_rr(stack_a, stack_b, c, 0);
 	else if (stack_b[0] <= c->tmp[c->mid_chunk - 1] && c->size_b > 1)
 		ft_rb(stack_b, c->size_b, 0);
 }

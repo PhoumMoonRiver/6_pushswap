@@ -12,8 +12,9 @@
 
 NAME = push_swap
 
-SRCS = pushswap.c \
-		error_check.c \
+BONUS_NAME = checker
+
+SRC = 	error_check.c \
 		libft_and_util/1_libft_util.c \
 		libft_and_util/ft_split.c \
 		libft_and_util/ft_util.c \
@@ -30,6 +31,13 @@ SRCS = pushswap.c \
 		sort/universe_sort.c \
 		sort/sub_sort.c
 
+SRCS = pushswap.c $(SRC)
+
+BONUS_SRCS = 	checker_bonus/bonus_checker_main.c \
+				checker_bonus/get_next_line/get_next_line_utils.c \
+				checker_bonus/get_next_line/get_next_line.c \
+				$(SRC)
+
 CC = gcc -Wall -Wextra -Werror -std=c99
 
 RM = rm -rf
@@ -39,6 +47,11 @@ all: $(NAME)
 $(NAME):
 	$(CC) $(SRCS) -o $(NAME)
 
+bonus : $(BONUS_NAME)
+
+$(BONUS_NAME):
+	$(CC) $(BONUS_SRCS) -o $(BONUS_NAME)
+
 clean:
 	$(RM) $(NAME)
 
@@ -47,7 +60,4 @@ fclean: clean
 
 re: fclean all
 
-test: checker_OS
-	ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_OS $ARG
-
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

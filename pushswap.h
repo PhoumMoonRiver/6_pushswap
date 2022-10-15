@@ -13,6 +13,8 @@
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
+# define BUFFER_SIZE 1
+
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
@@ -47,15 +49,15 @@ int		*ft_pushint(char **av, int len);
 void	ft_free2d(char **free2);
 void	ft_sa(int *stack_a, int len, int sec);
 void	ft_sb(int *stack_a, int len, int sec);
-void	ft_ss(int *stack_a, int *stack_b, int len);
+void	ft_ss(int *stack_a, int *stack_b, t_c *c, int sec);
 void	ft_ra(int *stack_a, int len, int sec);
 void	ft_rb(int *stack_b, int len, int sec);
-void	ft_rr(int *stack_a, int *stack_b, int len_a, int len_b);
+void	ft_rr(int *stack_a, int *stack_b, t_c *c, int sec);
 void	ft_rra(int *stack_a, int len, int sec);
 void	ft_rrb(int *stack_b, int len, int sec);
-void	ft_rrr(int *stack_a, int *stack_b, int len);
-void	ft_pa(int *stack_a, int *stack_b, t_c *c);
-void	ft_pb(int *stack_a, int *stack_b, t_c *c);
+void	ft_rrr(int *stack_a, int *stack_b, t_c *c, int sec);
+void	ft_pa(int *stack_a, int *stack_b, t_c *c, int sec);
+void	ft_pb(int *stack_a, int *stack_b, t_c *c, int sec);
 void	ft_sort(int *res_num, int len);
 void	ft_3_sort(int *res_num, int len);
 int		check_sort(int *res_num, int len);
@@ -71,5 +73,12 @@ void	ft_set_round_100(t_c *c, int *res_num, int len, int *stack_b);
 void	ft_set_chunk(int *stack_a, int len, int *stack_b, t_c *c);
 void	ft_set_pushtob(t_c *this, t_c *c, int *stacK_a, int *stack_b);
 void	ft_set_pushtoa(t_c *this, t_c *c, int *stack_a, int *stack_b);
+char	*get_next_line(int fd);
+char	*ft_readtojoin(int fd, char *buffer);
+char	*ft_strjoin(char *s1, char *s2);
+size_t	ft_strlen_end(const char *s, char end);
+char	*ft_strrchr(const char *s, int c);
+char	*ft_substr(char *s, unsigned int start, size_t len);
+char	*ft_read(char *buffer, size_t lenline);
 
 #endif

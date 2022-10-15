@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sub_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: njerasea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: njerasea <njerasea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 12:01:32 by njerasea          #+#    #+#             */
-/*   Updated: 2022/10/15 12:27:15 by njerasea         ###   ########.fr       */
+/*   Updated: 2022/10/15 19:29:23 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_set_pushtob(t_c *this, t_c *c, int *stack_a, int *stack_b)
 		this->keep = stack_a[this->size_a];
 		while (stack_a[0] != this->keep)
 			ft_rra(stack_a, c->size_a, 0);
-		ft_pb(stack_a, stack_b, c);
+		ft_pb(stack_a, stack_b, c, 0);
 		this->k++;
 	}
 	else
@@ -46,7 +46,7 @@ void	ft_set_pushtob(t_c *this, t_c *c, int *stack_a, int *stack_b)
 		this->keep = stack_a[this->j];
 		while (stack_a[0] != this->keep)
 			ft_ra(stack_a, c->size_a, 0);
-		ft_pb(stack_a, stack_b, c);
+		ft_pb(stack_a, stack_b, c, 0);
 		this->k++;
 	}
 }
@@ -58,21 +58,21 @@ void	ft_set_pushtoa(t_c *this, t_c *c, int *stack_a, int *stack_b)
 		while (stack_b[0] != this->keep)
 		{
 			if (stack_b[0] == this->keep2)
-				ft_pa(stack_a, stack_b, c);
+				ft_pa(stack_a, stack_b, c, 0);
 			else
 				ft_rrb(stack_b, c->size_b, 0);
 		}
-		ft_pa(stack_a, stack_b, c);
+		ft_pa(stack_a, stack_b, c, 0);
 	}
 	else
 	{
 		while (stack_b[0] != this->keep)
 		{
 			if (stack_b[0] == this->keep2)
-				ft_pa(stack_a, stack_b, c);
+				ft_pa(stack_a, stack_b, c, 0);
 			else
 				ft_rb(stack_b, c->size_b, 0);
 		}
-		ft_pa(stack_a, stack_b, c);
+		ft_pa(stack_a, stack_b, c, 0);
 	}
 }

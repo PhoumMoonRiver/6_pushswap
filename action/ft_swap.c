@@ -38,9 +38,10 @@ void	ft_sb(int *stack_b, int len, int sec)
 		ft_putstr_fd("sb\n", 1);
 }
 
-void	ft_ss(int *stack_a, int *stack_b, int len)
+void	ft_ss(int *stack_a, int *stack_b, t_c *c, int sec)
 {
-	ft_sa(stack_a, len, 1);
-	ft_sb(stack_b, len, 1);
-	ft_putstr_fd("ss\n", 1);
+	ft_sa(stack_a, c->size_a, 1);
+	ft_sb(stack_b, c->size_b, 1);
+	if (sec == 0)
+		ft_putstr_fd("ss\n", 1);
 }

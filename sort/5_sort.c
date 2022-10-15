@@ -26,7 +26,7 @@ void	ft_set_push(t_c *c, int *res_num, int *stack_b, t_c *this)
 			while (this->num1++ < c->num1)
 				ft_rra(res_num, c->num1, 0);
 		}
-		ft_pb(res_num, stack_b, c);
+		ft_pb(res_num, stack_b, c, 0);
 	}
 }
 
@@ -39,11 +39,11 @@ void	ft_set_5_sort(t_c *c, int *res_num, int *tmp, int *stack_b)
 	{
 		this.num1 = c->i;
 		if (c->i == 0)
-			ft_pb(res_num, stack_b, c);
+			ft_pb(res_num, stack_b, c, 0);
 		else if (c->i == 1)
 		{
 			ft_sa(res_num, c->num1, 0);
-			ft_pb(res_num, stack_b, c);
+			ft_pb(res_num, stack_b, c, 0);
 		}
 		ft_set_push(c, res_num, stack_b, &this);
 		c->num1--;
@@ -83,7 +83,7 @@ int	ft_5_sort(int *res_num, int len)
 	if (stack_b[1] > stack_b[0])
 		ft_sb(stack_b, len, 0);
 	while (c.size_b > 0)
-		ft_pa(res_num, stack_b, &c);
+		ft_pa(res_num, stack_b, &c, 0);
 	free (stack_b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: njerasea <njerasea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 09:43:56 by njerasea          #+#    #+#             */
-/*   Updated: 2022/10/15 12:40:21 by njerasea         ###   ########.fr       */
+/*   Updated: 2022/10/15 22:02:33 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,10 @@ void	error_check(int ac, char **av)
 	while (av[this.fd])
 	{
 		if (av[this.fd][0] == '\0')
+		{
+			ft_putstr_fd("Error\n", 2);
 			exit(0);
+		}
 		this.fd++;
 	}
 	check_num(av);

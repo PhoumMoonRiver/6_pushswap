@@ -6,7 +6,7 @@
 /*   By: njerasea <njerasea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 13:09:36 by njerasea          #+#    #+#             */
-/*   Updated: 2022/10/15 10:27:11 by njerasea         ###   ########.fr       */
+/*   Updated: 2022/10/15 19:28:23 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_btoa_uni(int *stack_a, int *stack_b, t_c *c)
 
 	this.j = 0;
 	while (c->size_b > 0)
-		ft_pa(stack_a, stack_b, c);
+		ft_pa(stack_a, stack_b, c, 0);
 }
 
 void	ft_atob_uni(int *stack_a, int *stack_b, t_c *c)
@@ -53,7 +53,7 @@ void	ft_atob_uni(int *stack_a, int *stack_b, t_c *c)
 	{
 		if (stack_a[0] == c->tmp[this.j])
 		{
-			ft_pb(stack_a, stack_b, c);
+			ft_pb(stack_a, stack_b, c, 0);
 			this.j++;
 		}
 		else

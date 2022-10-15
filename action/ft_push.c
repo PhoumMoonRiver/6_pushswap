@@ -12,7 +12,7 @@
 
 #include "../pushswap.h"
 
-void	ft_pa(int *stack_a, int *stack_b, t_c *c)
+void	ft_pa(int *stack_a, int *stack_b, t_c *c, int sec)
 {
 	t_c	this;
 
@@ -31,10 +31,11 @@ void	ft_pa(int *stack_a, int *stack_b, t_c *c)
 		stack_b[this.j - 1] = stack_b[this.j];
 		this.j++;
 	}
-	ft_putstr_fd("pa\n", 1);
+	if (sec == 0)
+		ft_putstr_fd("pa\n", 1);
 }
 
-void	ft_pb(int *stack_a, int *stack_b, t_c *c)
+void	ft_pb(int *stack_a, int *stack_b, t_c *c, int sec)
 {
 	t_c	this;
 
@@ -53,5 +54,6 @@ void	ft_pb(int *stack_a, int *stack_b, t_c *c)
 		stack_a[this.i - 1] = stack_a[this.i];
 		this.i++;
 	}
-	ft_putstr_fd("pb\n", 1);
+	if (sec == 0)
+		ft_putstr_fd("pb\n", 1);
 }

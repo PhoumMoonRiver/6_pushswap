@@ -46,9 +46,10 @@ void	ft_rrb(int *stack_b, int len, int sec)
 		ft_putstr_fd("rrb\n", 1);
 }
 
-void	ft_rrr(int *stack_a, int *stack_b, int len)
+void	ft_rrr(int *stack_a, int *stack_b, t_c *c, int sec)
 {
-	ft_rra(stack_a, len, 1);
-	ft_rrb(stack_b, len, 1);
-	ft_putstr_fd("rrr\n", 1);
+	ft_rra(stack_a, c->size_a, 1);
+	ft_rrb(stack_b, c->size_b, 1);
+	if (sec == 0)
+		ft_putstr_fd("rrr\n", 1);
 }
