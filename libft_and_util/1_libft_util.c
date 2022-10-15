@@ -6,7 +6,7 @@
 /*   By: njerasea <njerasea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 09:49:13 by njerasea          #+#    #+#             */
-/*   Updated: 2022/09/27 09:15:50 by njerasea         ###   ########.fr       */
+/*   Updated: 2022/10/15 10:17:52 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 int	ft_atoi(const char *str)
 {
-	size_t			i;
-	long int			res;
+	size_t		i;
+	long int	res;
 	int			sign;
+
 	i = 0;
 	sign = 1;
 	res = 0;
@@ -33,20 +34,20 @@ int	ft_atoi(const char *str)
 		res = (res * 10) + (str[i++] - '0');
 	if (res * sign > INT_MAX || res * sign < INT_MIN)
 	{
-    	ft_putstr_fd("Error\n", 2);
-        exit(1); 
-    }
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
+	}
 	return (res * sign);
 }
 
-size_t  ft_strlen(char *s)
+size_t	ft_strlen(char *s)
 {
-    size_t  i;
+	size_t	i;
 
-    i = 0;
-    while (s[i])
-        i++;
-    return (i);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
 
 void	ft_putstr_fd(char *s, int fd)

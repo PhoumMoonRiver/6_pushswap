@@ -6,7 +6,7 @@
 #    By: njerasea <njerasea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/23 12:32:51 by njerasea          #+#    #+#              #
-#    Updated: 2022/09/27 12:16:38 by njerasea         ###   ########.fr        #
+#    Updated: 2022/10/15 12:11:45 by njerasea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRCS = pushswap.c \
 		sort/5_sort.c \
 		sort/100_sort.c \
 		sort/500_sort.c \
-		sort/universe_sort.c
+		sort/universe_sort.c \
+		sort/sub_sort.c
 
 CC = gcc -Wall -Wextra -Werror -std=c99
 
