@@ -6,7 +6,7 @@
 /*   By: njerasea <njerasea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 12:39:25 by njerasea          #+#    #+#             */
-/*   Updated: 2022/10/15 12:28:58 by njerasea         ###   ########.fr       */
+/*   Updated: 2022/10/16 10:13:40 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,9 @@ size_t	ft_strlen_end(const char *s, char end);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_substr(char *s, unsigned int start, size_t len);
 char	*ft_read(char *buffer, size_t lenline);
+void	ft_doinstr_err(void);
+void	ft_doinstr(int *stack_a, int *stack_b, t_c *c, char *instruc);
+int		ft_sort_check(int *stack_a, t_c *c);
+void	ft_check_next_line(int *res_num, int *stack_b, t_c *c);
 
 #endif

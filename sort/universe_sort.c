@@ -6,35 +6,12 @@
 /*   By: njerasea <njerasea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 13:09:36 by njerasea          #+#    #+#             */
-/*   Updated: 2022/10/15 19:28:23 by njerasea         ###   ########.fr       */
+/*   Updated: 2022/10/16 11:25:16 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
-/*
-void	ft_print(int *stack_a, int *stack_b, s_count *c)
-{
-    int	h = 0;
-    while (h < c->size_a)
-    {
-        printf(" ======== A[%d] ===> [%d]\n", h, stack_a[h]);
-        h++;
-    }
-    h = 0;
-    while (h < c->size_b)
-    {
-        printf(" ====== B[%d] ===> [%d]\n", h, stack_b[h]);
-        h++;
-    }
-    int k = 0;
-    while (k < 10)
-    {
-        printf("++++++ tmp ++++++ tmp[%d] ====> [%d]\n", k, c->tmp[k]);
-        k++;
-    } 
-    printf("\n");
-}
-*/
+
 void	ft_btoa_uni(int *stack_a, int *stack_b, t_c *c)
 {
 	t_c	this;

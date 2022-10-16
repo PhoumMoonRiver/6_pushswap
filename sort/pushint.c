@@ -6,7 +6,7 @@
 /*   By: njerasea <njerasea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 21:43:19 by njerasea          #+#    #+#             */
-/*   Updated: 2022/10/15 10:26:36 by njerasea         ###   ########.fr       */
+/*   Updated: 2022/10/16 11:00:55 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ int	*ft_pushint(char **av, int len)
 		ft_free2d(res_split);
 	}
 	if (len <= 1)
+	{
+		if (tem)
+			free(tem);
 		exit (0);
+	}
 	return (tem);
 }
 
