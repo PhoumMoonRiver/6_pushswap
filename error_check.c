@@ -6,7 +6,7 @@
 /*   By: njerasea <njerasea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 09:43:56 by njerasea          #+#    #+#             */
-/*   Updated: 2022/10/16 10:56:51 by njerasea         ###   ########.fr       */
+/*   Updated: 2022/10/16 11:49:33 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	check_num(char **av)
 		sd = 0;
 		while (av[fd][sd])
 		{
-			if ((av[fd][sd] == '-' && sd == 0 && (av[fd][sd + 1] >= '0' 
+			if ((av[fd][sd] == '-' && sd == 0 && (av[fd][sd + 1] >= '0'
 				&& av[fd][sd + 1] <= '9')) || (av[fd][sd] == '-'
 				&& av[fd][sd - 1] == 32) || ((av[fd][sd] >= '0'
 				&& av[fd][sd] <= '9') || av[fd][sd] == 32))
